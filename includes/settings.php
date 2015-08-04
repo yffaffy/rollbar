@@ -33,7 +33,7 @@ register_setting( 'rollbar_wp', 'rollbar_wp_settings' );
     // SECTION: General
 	add_settings_section(
         'rollbar_wp_general',
-        __( 'Your section description', 'rollbar_wp' ),
+        __( 'General', 'rollbar_wp' ),
         'rollbar_wp_general_callback',
         'rollbar_wp'
     );
@@ -41,7 +41,7 @@ register_setting( 'rollbar_wp', 'rollbar_wp_settings' );
     // On/off
     add_settings_field(
         'rollbar_wp_logging_enabled',
-        __( 'Logging enabled', 'rollbar_wp' ),
+        __( 'Status', 'rollbar_wp' ),
         'rollbar_wp_logging_enabled_render',
         'rollbar_wp',
         'rollbar_wp_general'
@@ -76,9 +76,17 @@ register_setting( 'rollbar_wp', 'rollbar_wp_settings' );
     // SECTION: Filter
     add_settings_section(
         'rollbar_wp_filter',
-        __( 'Your section description', 'rollbar_wp' ),
+        __( 'Filter', 'rollbar_wp' ),
         'rollbar_wp_filter_callback',
         'rollbar_wp'
+    );
+
+    add_settings_field(
+        'rollbar_wp_filter_enabled',
+        __( 'Status', 'rollbar_wp' ),
+        'rollbar_wp_filter_enabled_render',
+        'rollbar_wp',
+        'rollbar_wp_filter'
     );
 
     add_settings_field(
@@ -88,33 +96,14 @@ register_setting( 'rollbar_wp', 'rollbar_wp_settings' );
         'rollbar_wp',
         'rollbar_wp_filter'
     );
-
-
-    /*
-
-	add_settings_field(
-        'rollbar_wp_radio_field_2',
-        __( 'Settings field description', 'rollbar_wp' ),
-        'rollbar_wp_radio_field_2_render',
-        'rollbar_wp',
-        'rollbar_wp_rollbar_wp_section_general'
-    );
-
-	add_settings_field(
-        'rollbar_wp_textarea_field_3',
-        __( 'Settings field description', 'rollbar_wp' ),
-        'rollbar_wp_textarea_field_3_render',
-        'rollbar_wp',
-        'rollbar_wp_rollbar_wp_section_general'
-    );
-    */
 }
 
 function rollbar_wp_logging_enabled_render(  ) {
 
     $options = get_option( 'rollbar_wp_settings' );
     ?>
-    <input type='checkbox' name='rollbar_wp_settings[rollbar_wp_logging_enabled]' <?php checked( $options['rollbar_wp_logging_enabled'], 1 ); ?> value='1'>
+    <input type='checkbox' name='rollbar_wp_settings[rollbar_wp_logging_enabled]' id="rollbar_wp_logging_enabled" <?php checked( $options['rollbar_wp_logging_enabled'], 1 ); ?> value='1' />
+    <label for="rollbar_wp_logging_enabled"><?php _e('Enabled', 'rollbar-wp'); ?></label>
     <?php
 }
 
@@ -153,6 +142,16 @@ function rollbar_wp_logging_level_render(  ) {
     <?php
 }
 
+function rollbar_wp_filter_enabled_render(  ) {
+
+    $options = get_option( 'rollbar_wp_settings' );
+    ?>
+    <input type='checkbox' name='rollbar_wp_settings[rollbar_wp_filter_enabled]' id="rollbar_wp_filter_enabled" <?php checked( $options['rollbar_wp_filter_enabled'], 1 ); ?> value='1'>
+    <label for="rollbar_wp_filter_enabled"><?php _e('Enabled', 'rollbar-wp'); ?></label>
+    <?php
+
+}
+
 function rollbar_wp_filter_plugins_render(  ) {
 
     $options = get_option( 'rollbar_wp_settings' );
@@ -160,63 +159,33 @@ function rollbar_wp_filter_plugins_render(  ) {
 
     if ( count($plugins) != 0 ) {
 
-        echo '<select>';
+        echo '<select name="rollbar_wp_settings[rollbar_wp_filter_plugins][]" multiple="multiple">';
 
         foreach ($plugins as $plugin) {
 
             $array = explode("/", $plugin);
 
             if ( isset($array[0]) && !empty($array[0]) ) {
-                echo '<option value="">';
-                echo $array[0];
-                echo '</option>';
+
+                $selected = false;
+
+                foreach($options['rollbar_wp_filter_plugins'] as $active_plugin)
+                {
+                    if( $array[0] == $active_plugin ) {
+                        $selected = true;
+                    }
+                }
+                ?>
+                <option value="<?php echo $array[0]; ?>"<?php if ( $selected ) echo ' selected="selected"'; ?>><?php echo $array[0]; ?></option>
+                <?php
             }
         }
 
         echo '</select>';
     } else {
-        echo '<p>Keine Plugins installiert.</p>';
+        echo '<p>' . __('No plugins installed.', 'rollbar-wp') . '</p>';
     }
-
-    ?>
-
-    <?php /*
-    <select name="rollbar_wp_settings[rollbar_wp_filter_plugins]" multiple="multiple">
-        <option value="1" <?php selected( $options['rollbar_wp_filter_plugins_1'], 1 ); ?>><?php _e('Fatal run-time errors (E_ERROR) only', 'rollbar-wp'); ?></option>
-        <option value="2" <?php selected( $options['rollbar_wp_filter_plugins_2'], 1 ); ?>><?php _e('Run-time warnings (E_WARNING) and above', 'rollbar-wp'); ?></option>
-        <option value="4" <?php selected( $options['rollbar_wp_filter_plugins_3'], 4); ?>><?php _e('Compile-time parse errors (E_PARSE) and above', 'rollbar-wp'); ?></option>
-    </select>
-    */ ?>
-
-    <?php
 }
-
-
-
-
-/*
-
-function rollbar_wp_radio_field_2_render(  ) {
-
-$options = get_option( 'rollbar_wp_settings' );
-	?>
-    <input type='radio' name='rollbar_wp_settings[rollbar_wp_radio_field_2]' <?php checked( $options['rollbar_wp_radio_field_2'], 1 ); ?> value='1'>
-<?php
-
-}
-
-
-function rollbar_wp_textarea_field_3_render(  ) {
-
-$options = get_option( 'rollbar_wp_settings' );
-	?>
-    <textarea cols='40' rows='5' name='rollbar_wp_settings[rollbar_wp_textarea_field_3]'> 
-		<?php echo $options['rollbar_wp_textarea_field_3']; ?>
- 	</textarea>
-<?php
-
-}
-*/
 
 function rollbar_wp_general_callback(  ) {
 
