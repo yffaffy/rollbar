@@ -309,6 +309,12 @@ class RollbarNotifier {
             return;
         }
 
+        // TODO
+        if ( !rollbar_wp_filter_php_errors($errfile) ) {
+            //return;
+        }
+        // TODO
+
         if (error_reporting() === 0 && !$this->report_suppressed) {
             // ignore
             return;

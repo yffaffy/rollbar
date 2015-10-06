@@ -80,8 +80,7 @@ if( !class_exists( 'Rollbar_WP' ) ) {
          */
         private function includes() {
             // Include scripts
-            require_once ROLLBAR_WP_DIR . 'includes/settings.php';
-            //require_once ROLLBAR_WP_DIR . 'includes/scripts.php';
+            require_once ROLLBAR_WP_DIR . 'includes/class.settings.php';
             require_once ROLLBAR_WP_DIR . 'includes/functions.php';
         }
 
@@ -109,8 +108,8 @@ if( !class_exists( 'Rollbar_WP' ) ) {
          *              the license check!
          */
         private function hooks() {
-            // Register settings
-            //add_filter( 'edd_settings_extensions', array( $this, 'settings' ), 1 );
+            add_action('init', 'rollbar_wp_initialize_php_logging');
+            add_action('wp_head', 'rollbar_wp_initialize_js_logging');
         }
 
 
