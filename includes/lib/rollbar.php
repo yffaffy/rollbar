@@ -309,12 +309,6 @@ class RollbarNotifier {
             return;
         }
 
-        // START - TODO
-        if ( !rollbar_wp_filter_php_errors($errfile) ) {
-            return;
-        }
-        // END - TODO
-
         if (error_reporting() === 0 && !$this->report_suppressed) {
             // ignore
             return;
@@ -354,6 +348,9 @@ class RollbarNotifier {
                 $level = 'warning';
                 $constant = 'E_WARNING';
                 break;
+            case 4:
+                $level = 'critical';
+                $constant = 'E_PARSE';
             case 8:
                 $level = 'info';
                 $constant = 'E_NOTICE';
@@ -811,7 +808,6 @@ class RollbarNotifier {
     }
 
     protected function build_payload($data) {
-
         $payload = array(
             'data' => $data
         );
