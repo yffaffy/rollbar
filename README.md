@@ -16,4 +16,7 @@ This plugin is integrates Rollbar into your WordPress installation.
 
 ## Disclaimer
 
-This plugin is a community driven contribution. All rights reserve to Rollbar.
+This plugin is a community driven contribution. All rights reserve to Rollbar. 
+
+[![Rollbar](https://d26gfdfi90p7cf.cloudfront.net/rollbar-badge.144534.o.png)](https://rollbar.com/)
+
