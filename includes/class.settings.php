@@ -55,7 +55,7 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
             // On/off
             add_settings_field(
                 'rollbar_wp_status',
-                __('Status', 'rollbar_wp'),
+                __('Status', 'rollbar'),
                 array(&$this, 'status_render'),
                 'rollbar_wp',
                 'rollbar_wp_general'
@@ -64,7 +64,7 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
             // Token
             add_settings_field(
                 'rollbar_wp_access_token',
-                __('Access Token', 'rollbar_wp'),
+                __('Access Token', 'rollbar'),
                 array(&$this, 'access_token_render'),
                 'rollbar_wp',
                 'rollbar_wp_general'
@@ -73,7 +73,7 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
             // Config
             add_settings_field(
                 'rollbar_wp_environment',
-                __('Environment', 'rollbar_wp'),
+                __('Environment', 'rollbar'),
                 array(&$this, 'environment_render'),
                 'rollbar_wp',
                 'rollbar_wp_general',
@@ -82,7 +82,7 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
 
             add_settings_field(
                 'rollbar_wp_logging_level',
-                __('Logging level', 'rollbar_wp'),
+                __('Logging level', 'rollbar'),
                 array(&$this, 'logging_level_render'),
                 'rollbar_wp',
                 'rollbar_wp_general',
@@ -93,14 +93,14 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
             // SECTION: Filter
             add_settings_section(
                 'rollbar_wp_filter',
-                __('Filter', 'rollbar_wp'),
+                __('Filter', 'rollbar'),
                 array(&$this, 'filter_callback'),
                 'rollbar_wp'
             );
 
             add_settings_field(
                 'rollbar_wp_filter_enabled',
-                __('Status', 'rollbar_wp'),
+                __('Status', 'rollbar'),
                 array(&$this, 'filter_enabled_render'),
                 'rollbar_wp',
                 'rollbar_wp_filter'
@@ -108,7 +108,7 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
 
             add_settings_field(
                 'rollbar_wp_filter_plugins',
-                __('Plugins', 'rollbar_wp'),
+                __('Plugins', 'rollbar'),
                 array(&$this, 'rollbar_wp_filter_plugins_render'),
                 'rollbar_wp',
                 'rollbar_wp_filter'
@@ -250,7 +250,7 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
         function filter_callback()
         {
 
-            echo __('Filter dies und das :)', 'rollbar_wp');
+            echo __('Coming soon!', 'rollbar');
         }
 
 

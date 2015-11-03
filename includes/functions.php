@@ -9,10 +9,12 @@
 // Exit if accessed directly
 if( !defined( 'ABSPATH' ) ) exit;
 
-// Libs
-//if( !class_exists( 'Rollbar_WP' ) && !class_exists( 'RollbarNotifier' ) && !class_exists( 'Ratchetio' ) ) {
+/*
+ * Libs
+ */
+if( !class_exists( 'Rollbar' ) && !class_exists( 'RollbarNotifier' ) && !class_exists( 'Ratchetio' ) ) {
     require_once ROLLBAR_WP_DIR . 'includes/lib/rollbar.php';
-//}
+}
 
 /*
  * PHP logging
