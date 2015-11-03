@@ -37,7 +37,7 @@ You can at least support the plugin development and rate it up!
 
 = Disclaimer =
 
-This plugin is not from the Rollbar creators. It's a community driven contribution. All rights reserve to Rollbar.
+This plugin is a community driven contribution. All rights reserve to Rollbar.
 
 == Installation ==
 
