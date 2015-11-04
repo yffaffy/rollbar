@@ -76,10 +76,10 @@ Yes of course. Additionally you can assign different environments to each of you
 
 == Changelog ==
 
-= Version 1.0.0 (3rd November 2015) =
+= Version 1.0.0 (4th November 2015) =
 * Initial release!
 
 == Upgrade Notice ==
 
-= Version 1.0.0 (3rd November 2015) =
+= Version 1.0.0 (4th November 2015) =
 * Initial release!
