@@ -4,7 +4,7 @@ Donate link: http://coder.flowdee.de/link/wishlist
 Tags: rollbar, full stack, error, tracking, error tracking, error reporting, reporting, debug
 Requires at least: 3.5.1
 Tested up to: 4.3.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,12 +13,12 @@ Rollbar full-stack error tracking for WordPress
 == Description ==
 Rollbar collects errors that happen in your application, notifies you, and analyzes them so you can debug and fix them.
 
-This plugin is integrates Rollbar into your WordPress installation.
+This plugin integrates Rollbar into your WordPress installation.
 
 = Features =
 
 *   PHP & Javascript error logging
-*   Define an evironment for each single WordPress installation or Multisite blog
+*   Define an environment for each single WordPress installation or Multisite blog
 *   Specify your desired logging level
 *   Regular updates and improvements!
 
@@ -37,7 +37,7 @@ You can at least support the plugin development and rate it up!
 
 = Disclaimer =
 
-This plugin is a community driven contribution. All rights reserve to Rollbar.
+This plugin is a community driven contribution. All rights reserved to [Rollbar](https://rollbar.com/).
 
 == Installation ==
 
