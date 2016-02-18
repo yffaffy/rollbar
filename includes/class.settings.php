@@ -135,17 +135,17 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
 
         function access_token_render()
         {
-            $client_side_access_token = (!empty($this->options['client_side_access_token'])) ? $this->options['client_side_access_token'] : null;
-            $server_side_access_token = (!empty($this->options['server_side_access_token'])) ? $this->options['server_side_access_token'] : null;
+            $client_side_access_token = (!empty($this->options['client_side_access_token'])) ? esc_attr(trim($this->options['client_side_access_token'])) : null;
+            $server_side_access_token = (!empty($this->options['server_side_access_token'])) ? esc_attr(trim($this->options['server_side_access_token'])) : null;
 
             ?>
             <h4 style="margin: 5px 0;"><?php _e('Client Side Access Token', 'rollbar-wp'); ?> <small>(post_client_item)</small></h4>
             <input type='text' name='rollbar_wp[client_side_access_token]' id="rollbar_wp_client_side_access_token"
-               value='<?php echo $client_side_access_token; ?>' style="width: 300px;">
+               value='<?php echo esc_attr($client_side_access_token); ?>' style="width: 300px;">
 
             <h4 style="margin: 15px 0 5px 0;"><?php _e('Server Side Access Token', 'rollbar-wp'); ?> <small>(post_server_item)</small></h4>
             <input type='text' name='rollbar_wp[server_side_access_token]' id="rollbar_wp_server_side_access_token"
-                   value='<?php echo $server_side_access_token; ?>' style="width: 300px;">
+                   value='<?php echo esc_attr($server_side_access_token); ?>' style="width: 300px;">
             <p>
                 <small><?php _e('You can find your access tokens under your project settings: <strong>Project Access Tokens</strong>.', 'rollbar-wp'); ?></small>
             </p>
@@ -154,11 +154,11 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
 
         function environment_render()
         {
-            $environment = (!empty($this->options['environment'])) ? $this->options['environment'] : '';
+            $environment = (!empty($this->options['environment'])) ? esc_attr(trim($this->options['environment'])) : '';
 
             ?>
             <input type='text' name='rollbar_wp[environment]' id="rollbar_wp_environment"
-                   value='<?php echo $environment; ?>'>
+                   value='<?php echo esc_attr(trim($environment)); ?>'>
             <p>
                 <small><?php _e('Define the current environment: e.g. "production" or "development".', 'rollbar-wp'); ?></small>
             </p>
@@ -167,7 +167,7 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
 
         function logging_level_render()
         {
-            $logging_level = (!empty($this->options['logging_level'])) ? $this->options['logging_level'] : 1024;
+            $logging_level = (!empty($this->options['logging_level'])) ? esc_attr(trim($this->options['logging_level'])) : 1024;
 
             ?>
 

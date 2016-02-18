@@ -31,14 +31,14 @@ function rollbar_wp_initialize_php_logging() {
     }
 
     // Return if access token is not set
-    $server_side_access_token = (!empty($options['server_side_access_token'])) ? $options['server_side_access_token'] : '';
+    $server_side_access_token = (!empty($options['server_side_access_token'])) ? esc_attr(trim($options['server_side_access_token'])) : '';
 
     if ($server_side_access_token == '')
         return;
 
     // Finish config parameters
-    $environment = (!empty($options['environment'])) ? $options['environment'] : '';
-    $logging_level = (!empty($options['logging_level'])) ? $options['logging_level'] : 1024;
+    $environment = (!empty($options['environment'])) ? esc_attr(trim($options['environment'])) : '';
+    $logging_level = (!empty($options['logging_level'])) ? esc_attr(trim($options['logging_level'])) : 1024;
 
     // Config
     $config = array(
@@ -70,20 +70,20 @@ function rollbar_wp_initialize_js_logging () {
     }
 
     // Return if access token is not set
-    $client_side_access_token = (!empty($options['client_side_access_token'])) ? $options['client_side_access_token'] : '';
+    $client_side_access_token = (!empty($options['client_side_access_token'])) ? wp_json_encode(trim($options['client_side_access_token'])) : '';
 
     if ($client_side_access_token == '')
         return;
 
-    $environment = (!empty($options['environment'])) ? $options['environment'] : '';
+    $environment = (!empty($options['environment'])) ? wp_json_encode(trim($options['environment'])) : '';
 
     echo '
 <script>
     var _rollbarConfig = {
-        accessToken: "' . $client_side_access_token . '",
+        accessToken: ' . $client_side_access_token . ',
         captureUncaught: true,
         payload: {
-            environment: "' . $environment . '"
+            environment: ' . $environment . '
         }
     };
     // Rollbar Snippet
