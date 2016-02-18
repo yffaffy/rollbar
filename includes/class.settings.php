@@ -141,11 +141,11 @@ if (!class_exists('ROLLBAR_WP_SETTINGS')) {
             ?>
             <h4 style="margin: 5px 0;"><?php _e('Client Side Access Token', 'rollbar-wp'); ?> <small>(post_client_item)</small></h4>
             <input type='text' name='rollbar_wp[client_side_access_token]' id="rollbar_wp_client_side_access_token"
-               value='<?php echo esc_attr($client_side_access_token); ?>' style="width: 300px;">
+               value='<?php echo esc_attr(trim($client_side_access_token)); ?>' style="width: 300px;">
 
             <h4 style="margin: 15px 0 5px 0;"><?php _e('Server Side Access Token', 'rollbar-wp'); ?> <small>(post_server_item)</small></h4>
             <input type='text' name='rollbar_wp[server_side_access_token]' id="rollbar_wp_server_side_access_token"
-                   value='<?php echo esc_attr($server_side_access_token); ?>' style="width: 300px;">
+                   value='<?php echo esc_attr(trim($server_side_access_token)); ?>' style="width: 300px;">
             <p>
                 <small><?php _e('You can find your access tokens under your project settings: <strong>Project Access Tokens</strong>.', 'rollbar-wp'); ?></small>
             </p>

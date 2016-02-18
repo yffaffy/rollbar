@@ -43,12 +43,12 @@ function rollbar_wp_initialize_php_logging() {
     // Config
     $config = array(
         // required
-        'access_token' => $server_side_access_token,
+        'access_token' => esc_attr(trim($server_side_access_token)),
         // optional - environment name. any string will do.
-        'environment' => $environment,
+        'environment' => esc_attr(trim($environment)),
         // optional - path to directory your code is in. used for linking stack traces.
         'root' => ABSPATH,
-        'max_errno' => $logging_level
+        'max_errno' => esc_attr(trim($logging_level))
     );
 
     // installs global error and exception handlers
