@@ -1,6 +1,6 @@
 === Rollbar ===
 Contributors: flowdee
-Donate link: http://coder.flowdee.de/link/wishlist
+Donate link: http://donate.flowdee.de/
 Tags: rollbar, full stack, error, tracking, error tracking, error reporting, reporting, debug
 Requires at least: 3.5.1
 Tested up to: 4.4.2
