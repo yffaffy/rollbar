@@ -3,8 +3,8 @@ Contributors: flowdee
 Donate link: http://coder.flowdee.de/link/wishlist
 Tags: rollbar, full stack, error, tracking, error tracking, error reporting, reporting, debug
 Requires at least: 3.5.1
-Tested up to: 4.3.1
-Stable tag: 1.0.1
+Tested up to: 4.4.2
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,10 +76,18 @@ Yes of course. Additionally you can assign different environments to each of you
 
 == Changelog ==
 
+= Version 1.0.2 (28th March 2016) =
+* Updated rollbar js lib
+* Added escaping for setting values
+
 = Version 1.0.0 (4th November 2015) =
 * Initial release!
 
 == Upgrade Notice ==
+
+= Version 1.0.2 (28th March 2016) =
+* Updated rollbar js lib
+* Added escaping for setting values
 
 = Version 1.0.0 (4th November 2015) =
 * Initial release!

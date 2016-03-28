@@ -3,7 +3,7 @@
  * Plugin Name:     Rollbar
  * Plugin URI:      https://wordpress.org/plugins/rollbar/
  * Description:     Rollbar full-stack error tracking for WordPress
- * Version:         1.0.1
+ * Version:         1.0.2
  * Author:          flowdee
  * Author URI:      http://flowdee.de
  * Text Domain:     rollbar
@@ -61,7 +61,7 @@ if( !class_exists( 'Rollbar_WP' ) ) {
          */
         private function setup_constants() {
             // Plugin version
-            define( 'ROLLBAR_WP_VER', '1.0.0' );
+            define( 'ROLLBAR_WP_VER', '1.0.2' );
 
             // Plugin path
             define( 'ROLLBAR_WP_DIR', plugin_dir_path( __FILE__ ) );
